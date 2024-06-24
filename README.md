@@ -34,16 +34,16 @@ ansible --version
 #### And follow below commands
 
 1. Install wget and update packages:
-   ![Step 1](images/1.png)
+   ![Step 1](imgs/1.png)
 
 2. Download and install EPEL repository:
-   ![Step 2](images/2.png)
+   ![Step 2](imgs/2.png)
 
 3. After executing command of visudo below window will be opened, add user list like below:
-   ![Step 3](images/3.png)
+   ![Step 3](imgs/3.png)
 
 4. To establish SSH connection among all 3 instances, edit sshd_config file:
-   ![Step 4](images/4.png)
+   ![Step 4](imgs/4.png)
 
 5. Reload the changes made in sshd_config file by command:
    ```bash
