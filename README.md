@@ -65,7 +65,7 @@ ansible --version
 5. Reload the changes made in sshd_config file by command:
    ```
    sudo service sshd reload
-```
+   ```
 
 
 ## Some important concepts of Ansible ::
