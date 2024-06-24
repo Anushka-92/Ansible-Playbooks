@@ -1,0 +1,38 @@
+## intentionally making errors and using ignore_error for avoidance and continuation of execution of this yml file
+
+---
+- name: this is installing httpd
+  hosts: all
+  become: true
+
+  tasks: 
+  - name: Installing httpd package
+    yum: 
+      name: httpd 
+      state: installed
+    when: ansible_os_family == "RedHat"
+
+  - name: Starting httpd service
+    service:
+      name: httoe ##deliberatly making error here
+      state: started
+    when: ansible_os_family == "RedHat"
+    ignore_errors: yes
+
+  - name: Installing apahe2 package
+    apt: 
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: starting apahe2 package
+    service: 
+      name: apache2
+      state: started
+    when: ansible_os_family == "Debian"
+
+  - name: Copy index.html file
+    copy: 
+      src: /home/ansibleadmin/index.html
+      dest: /var/www/html
+      mode: 0777

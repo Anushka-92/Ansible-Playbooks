@@ -1,0 +1,50 @@
+---
+- name: Playbook to copy a file
+ hosts: all
+ become: true
+ tasks:
+  - name: Copy a file
+    copy: 
+      src: /home/ansibleadmin/index.html
+      dest: /home/ansibleadmin
+      mode: 0666
+      owner: anush
+
+####To create a directory
+
+----
+- name: This playbooke is used to create directory
+  hosts: all
+  become: true
+  tasks:
+    - name: Creating a directory
+      file: 
+        path: /home/ansibleadmin/dir1
+        state: directory
+
+####To delete a directory      
+
+
+---
+- name: This playbook is to delete earlier created directory
+  hosts: all
+  become: true
+  tasks:
+    - name: Delete a directory
+      file:
+        path: /home/ansibleadmin/dir1
+        state: directory
+
+
+####To create a file          
+
+----
+- name: This playbooke is used to create file
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Creating a file
+      file: 
+        path: /home/ansibleadmin/file
+        state: touch
+        

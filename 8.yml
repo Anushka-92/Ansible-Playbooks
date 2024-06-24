@@ -1,0 +1,21 @@
+##For install a package 
+---
+- name: playbook to install package
+  hosts: webserver
+  become: true
+  tasks:
+    - name: Install package
+      yum: 
+        name: git
+        state: installed
+
+##For installing multiple packages at a time        
+---
+- name: playbook to install packages
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: Install multiple packages at a time 
+      yum: 
+        name: ['git','which','kubernetes','mysql','tree','wget',]
+        state: installed  

@@ -21,44 +21,51 @@ To execute common commands on all 3 EC2 instances simultaneously, follow these s
 ###### Install wget
 ```bash
 sudo yum install wget -y
-
+```
 
 ####### Download and install EPEL repository
 ```bash
 wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install epel-release-latest-7.noarch.rpm -y
+```
 
 ####### Update the system
 ```bash
 sudo yum update -y
+```
 
 #######  Install git, Python, Python development tools, pip, OpenSSL, and Ansible
 ```bash
 sudo yum install git python python-devel python-pip openssl ansible -y
+```
 
 #######  Verify Ansible installation
 ```bash
 ansible --version
-
+```
 
 ####### git comm And follow below commands
 
 1. Install wget and update packages:
+
    ![Step 1](imgs/1.png)
 
 2. Download and install EPEL repository:
+
    ![Step 2](imgs/2.png)
 
 3. After executing command of visudo below window will be opened, add user list like below:
+
    ![Step 3](imgs/3.png)
 
 4. To establish SSH connection among all 3 instances, edit sshd_config file:
+
    ![Step 4](imgs/4.png)
 
 5. Reload the changes made in sshd_config file by command:
-   ```bash
+   ```
    sudo service sshd reload
-
+```
 
 
 ## Some important concepts of Ansible ::

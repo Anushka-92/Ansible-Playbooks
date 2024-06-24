@@ -1,0 +1,12 @@
+---
+- name: Linux commands running
+  hosts: all
+  become: true
+  tasks: 
+   -  name: Update and install httpd
+      shell: |
+        sudo yum update -y
+        sudo yum install -y httpd
+
+
+ 
