@@ -23,28 +23,28 @@ To execute common commands on all 3 EC2 instances simultaneously, follow these s
 sudo yum install wget -y
 ```
 
-####### Download and install EPEL repository
+###### Download and install EPEL repository
 ```bash
 wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install epel-release-latest-7.noarch.rpm -y
 ```
 
-####### Update the system
+###### Update the system
 ```bash
 sudo yum update -y
 ```
 
-#######  Install git, Python, Python development tools, pip, OpenSSL, and Ansible
-```bash
+######  Install git, Python, Python development tools, pip, OpenSSL, and Ansible
+```
 sudo yum install git python python-devel python-pip openssl ansible -y
 ```
 
-#######  Verify Ansible installation
+###### Verify Ansible installation
 ```bash
 ansible --version
 ```
 
-####### git comm And follow below commands
+###### git comm And follow below commands
 
 1. Install wget and update packages:
 
