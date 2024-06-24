@@ -1,37 +1,47 @@
 # ANSIBLE 
-It is an configuration management tool to automate configurations. Same as terraform, Ansible is also used as an IAC tool.
-It is an nothing but way to automate admin tasks.
-Configuration management tool turns your code into infrastructure, So that our code can be testable , repeateble and versionable.
 
-# Installation
+Ansible is a configuration management tool used to automate configurations. Similar to Terraform, Ansible is also utilized as an Infrastructure as Code (IAC) tool. It automates administrative tasks, turning your code into infrastructure, making it testable, repeatable, and versionable.
+
+## Installation
 
 To set up the environment for this project, follow these steps:
 
-## Launching EC2 Instances on AWS
+### Launching EC2 Instances on AWS
 
 1. Log in to your AWS Management Console.
 2. Navigate to the EC2 dashboard.
 3. Launch 3 EC2 instances using the desired AMI and instance types.
-4. Performing Common Tasks on EC2 Instances by connecting with Mobaxterm 
-5. Using Multi-Execution Mode perform below commands
+4. Connect to your instances using Mobaxterm.
+5. Using Multi-Execution Mode, perform the following commands:
+
+### Performing Common Tasks on EC2 Instances
 
 To execute common commands on all 3 EC2 instances simultaneously, follow these steps:
-#### Install wget
+
+###### Install wget
+```bash
 sudo yum install wget -y
 
-#### Download and install EPEL repository
+
+####### Download and install EPEL repository
+```bash
 wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install epel-release-latest-7.noarch.rpm -y
 
-#### Update the system
+####### Update the system
+```bash
 sudo yum update -y
 
-#### Install git, Python, Python development tools, pip, OpenSSL, and Ansible
+#######  Install git, Python, Python development tools, pip, OpenSSL, and Ansible
+```bash
 sudo yum install git python python-devel python-pip openssl ansible -y
 
-#### Verify Ansible installation
+#######  Verify Ansible installation
+```bash
 ansible --version
-#### And follow below commands
+
+
+####### git comm And follow below commands
 
 1. Install wget and update packages:
    ![Step 1](imgs/1.png)
@@ -51,7 +61,7 @@ ansible --version
 
 
 
-## Some important concepts of Ansible :~:
+## Some important concepts of Ansible ::
 1. Server: - It is the place where we create playbooks and write code in YML format
 2. Setup: - It is a module in ansible which gathers nodes information.
 3. ssh: - It is an agent through ansible server pushes code to nodes.
