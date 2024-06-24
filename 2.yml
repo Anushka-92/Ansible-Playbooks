@@ -1,0 +1,18 @@
+---
+- name: Creating user by playbook
+  hosts: all
+  become: true
+  vars: 
+      user: Anushka
+  tasks: 
+    - name: Creating user {{Anush}} 
+      user: 
+          name: "{{Anush}}"
+
+
+## Other way to create anush user on all targeted connected host
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - user: name=anush

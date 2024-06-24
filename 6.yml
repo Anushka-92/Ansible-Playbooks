@@ -1,0 +1,36 @@
+---
+- name: This playbook installs Jenkins
+  hosts: all
+  become: true
+  tasks:
+
+  - name: Install java ##because its an pre-requisit to install jenkins on system
+    yum:
+      name: java
+      state: installed
+
+  - name: install wget
+    yum:
+      name: wget
+      state: installed
+
+  - name: Download Jenkins repo.
+    get_url:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+
+  - name: Adding jenkins key
+    rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/debian-stable/jenkins.io.key    
+
+  -name: Installing jenkins
+   yum:
+      name: jenkins
+      state: installed
+
+  - name: Starting jenkins
+    service:
+      name: jenkins
+      state: started
+      enabled: yes
