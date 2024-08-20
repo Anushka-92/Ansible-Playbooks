@@ -1,29 +1,25 @@
 ##Installing httpd 
----
-- name: httpd installation using playbook
+
+ ---
+- name: Install and start httpd
   hosts: all
   become: true
   tasks:
 
-    - name: install httpd
+    - name: Install httpd
       yum:
         name: httpd
-        state: present ## this can be 
+        state: installed  # this line can be ignored as system consider installation by default . can use 'present' instead of installed.
 
-    - name: start httpd
+    - name: Start and enable httpd service
       service:
         name: httpd
         state: started
+        enabled: yes
+       
 
 
 ##Unstalling httpd     
-
-
----
-- name: httpd Uninstallation using playbook
-  hosts: all
-  become: true
-  tasks:
 
     - name: stopping httpd
       service:
@@ -34,4 +30,21 @@
        yum:
         name: httpd
         state: removed
+
+---
+- name: Uninstall httpd using playbook
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Stop httpd service
+      service:
+        name: httpd
+        state: stopped
+
+    - name: Uninstall httpd
+      yum:
+        name: httpd
+        state: absent ## you have to mention this as this is not default nature . can use 'removed' instead of absent
+      
        
