@@ -1,3 +1,5 @@
+## Installing Jenkins on RedHat-Based Systems using Playbook
+
 ---
 - name: This playbook installs Jenkins
   hosts: all
@@ -16,13 +18,13 @@
 
   - name: Download Jenkins repo.
     get_url:
-      url: https://pkg.jenkins.io/debian-stable/jenkins.repo
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
       dest: /etc/yum.repos.d/jenkins.repo
 
-  - name: Adding jenkins key
+  - name: Import Jenkins GPG key
     rpm_key:
       state: present
-      key: https://pkg.jenkins.io/debian-stable/jenkins.io.key    
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
   -name: Installing jenkins
    yum:
@@ -34,3 +36,46 @@
       name: jenkins
       state: started
       enabled: yes
+
+
+## Installing Jenkins on Debaian-Based Systems using Playbook      
+
+---
+- name: This playbook installs Jenkins
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Install Java (required for Jenkins)
+      apt:
+        name: default-jdk
+        state: present
+        update_cache: yes
+
+    - name: Install wget
+      apt:
+        name: wget
+        state: present
+        update_cache: yes
+
+    - name: Add Jenkins repository
+      apt_repository:
+        repo: 'deb http://pkg.jenkins.io/debian-stable binary/'
+        state: present
+
+    - name: Import Jenkins GPG key
+      apt_key:
+        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+        state: present
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+
+    - name: Start and enable Jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: yes
+      
