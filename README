@@ -1,9 +1,9 @@
-# ANSIBLE 
+🌟🌟🌟 ANSIBLE 🌟🌟🌟
 It is an configuration management tool to automate configurations. Same as terraform, Ansible is also used as an IAC tool.
 It is an nothing but way to automate admin tasks.
 Configuration management tool turns your code into infrastructure, So that our code can be testable , repeateble and versionable.
 
-# Installation
+# Installation 🛠️
 
 To set up the environment for this project, follow these steps:
 
@@ -15,7 +15,7 @@ To set up the environment for this project, follow these steps:
 4. Performing Common Tasks on EC2 Instances by connecting with Mobaxterm 
 5. Using Multi-Execution Mode perform below commands
 
-To execute common commands on all 3 EC2 instances simultaneously, follow these steps:
+To execute common commands on all 3 EC2 instances simultaneously, follow these steps 📝
 #### Install wget
 sudo yum install wget -y
 
@@ -32,7 +32,7 @@ sudo yum install git python python-devel python-pip openssl ansible -y
 #### Verify Ansible installation
 ansible --version
 
-#### And follow below commands
+#### And follow below commands 📜
 ![Screenshot of Feature](C:\Users\Anurag\Desktop\MyPlaybook/1.png)
 ![Screenshot of Feature](C:\Users\Anurag\Desktop\MyPlaybook/2.png)
 After executing command of visudo below window will be opened , add user list like below--
@@ -42,7 +42,7 @@ To establish SSH connectionamong all 3 instnaces, follow command-- vi /etc/ssh/s
 Reload the changes made in sshd_config file by command --service sshd reload
 
 
-## Some important concepts of Ansible :~:
+## Some important concepts of Ansible 📚
 1.Server: - It is the place where we create playbooks and write code in YML format
 2.Setup: - It is a module in ansible which gathers nodes information.
 3.ssh: - It is an agent through ansible server pushes code to nodes.
@@ -56,3 +56,5 @@ Reload the changes made in sshd_config file by command --service sshd reload
 11.Vault: -The way of protecting playbooks by encrypting them, to hide confidential info  like- passwords, keys ...etc.
 12.Roles: - Creating separate file to each section and just mentioning the names of those sections in playbook instead of mentioning all modules in main playbook, we can maintain small playbook without any complexity.When you call main playbook, main playbook will call all sections files respectively in the order whatever order you mention in playbook
 
+for more details and willing to contribute , please refer my blog regarding ansible 🤝
+ https://awsthoughts.hashnode.dev/learn-ansible-a-simple-guide-for-starters 
