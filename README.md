@@ -1,12 +1,12 @@
-# ANSIBLE 
+🌟🌟🌟 ANSIBLE 🌟🌟🌟
 
 Ansible is a configuration management tool used to automate configurations. Similar to Terraform, Ansible is also utilized as an Infrastructure as Code (IAC) tool. It automates administrative tasks, turning your code into infrastructure, making it testable, repeatable, and versionable.
 
-## Installation
+## Installation 🛠️
 
 To set up the environment for this project, follow these steps:
 
-### Launching EC2 Instances on AWS
+### Launching EC2 Instances on AWS 
 
 1. Log in to your AWS Management Console.
 2. Navigate to the EC2 dashboard.
@@ -23,7 +23,7 @@ To execute common commands on all 3 EC2 instances simultaneously, follow these s
 sudo yum install wget -y
 ```
 
-###### Download and install EPEL repository
+###### Download and install EPEL repository 📜
 ```bash
 wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install epel-release-latest-7.noarch.rpm -y
@@ -44,7 +44,7 @@ sudo yum install git python python-devel python-pip openssl ansible -y
 ansible --version
 ```
 
-###### git comm And follow below commands
+###### git comm And follow below commands 📝
 
 1. Install wget and update packages:
 
@@ -68,7 +68,7 @@ ansible --version
    ```
 
 
-## Some important concepts of Ansible ::
+## Some important concepts of Ansible 🚀 🚀
 1. Server: - It is the place where we create playbooks and write code in YML format
 2. Setup: - It is a module in ansible which gathers nodes information.
 3. ssh: - It is an agent through ansible server pushes code to nodes.
@@ -82,3 +82,8 @@ ansible --version
 11. Vault: -The way of protecting playbooks by encrypting them, to hide confidential info  like- passwords, keys ...etc.
 12. Roles: - Creating separate file to each section and just mentioning the names of those sections in playbook instead of mentioning all modules in main playbook, we can maintain small playbook without any complexity.When you call main playbook, main playbook will call all sections files respectively in the order whatever order you mention in playbook
 
+
+For more details and willing to contribute , please refer my blog regarding ansible 🤝
+ https://awsthoughts.hashnode.dev/learn-ansible-a-simple-guide-for-starters 
+
+Thank you for your reading! 💡
