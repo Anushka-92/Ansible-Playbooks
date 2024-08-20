@@ -1,18 +1,24 @@
+## Creating user Anushka using playbook
 ---
 - name: Creating user by playbook
   hosts: all
   become: true
-  vars: 
-      user: Anushka
-  tasks: 
-    - name: Creating user {{Anush}} 
-      user: 
-          name: "{{Anush}}"
+  vars:
+    user_name: Anushka
+  tasks:
+    - name: Creating user {{ user_name }}
+      user:
+        name: "{{ user_name }}"
+        state: present
 
 
 ## Other way to create anush user on all targeted connected host
 ---
-- hosts: all
+- name: Create user anush on all targeted hosts
+  hosts: all
   become: yes
-  tasks: 
-  - user: name=anush
+  tasks:
+    - name: Ensure user anush exists
+      user:
+        name: anush
+        state: present
