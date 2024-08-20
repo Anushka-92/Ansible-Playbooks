@@ -1,39 +1,43 @@
+####Installing Tomcat by checking redhat or debian based systems.
+
 ---
-- name: Installing tomcat using playbook
+- name: Installing Tomcat using playbook
   hosts: webservers
   become: true
 
   tasks: 
-    - name: Installing java on RedHat
+    - name: Installing Java on RedHat
       yum: 
-          name: java
-          state: installed
+        name: java
+        state: installed
       when: ansible_os_family == "RedHat"
 
-      - name: Installing java on Debian
-        apt: 
-          name: default-jdk
-          state: present
-        when: ansible_os_family == "Debian"
+    - name: Installing Java on Debian
+      apt: 
+        name: default-jdk
+        state: present
+      when: ansible_os_family == "Debian"
 
-      - name: Download Tomcat
-        get_url: 
-          url: "https://downloads.apache.org/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz"
-          dest: /opt
+    - name: Download Tomcat
+      get_url: 
+        url: "https://downloads.apache.org/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz"
+        dest: /opt/apache-tomcat-8.5.65.tar.gz
 
-      - name: Extract Tomcat
-        unarchive: 
-          src: /opt/apache-tomcat-8.5.65.tar.gz
-          dest: /opt
-          remote_src: yes
+    - name: Extract Tomcat
+      unarchive: 
+        src: /opt/apache-tomcat-8.5.65.tar.gz
+        dest: /opt
+        remote_src: yes
 
-      - name: Add executable permissions
-        file: 
-          path: /opt/apache-tomcat-8.5.65.tar.gz
-          mode: 0777    
-      
-      - name: Start tomcat service
-        shell: nohup ./startup.sh
-        args:
-          chdir: /opt/apache-tomcat-8.5.65/bin
+    - name: Add executable permissions to Tomcat scripts
+      file: 
+        path: "{{ item }}"
+        mode: '0755'
+      with_items:
+        - /opt/apache-tomcat-8.5.65/bin/startup.sh
+        - /opt/apache-tomcat-8.5.65/bin/shutdown.sh
 
+    - name: Start Tomcat service
+      shell: nohup ./startup.sh > /opt/tomcat.log 2>&1 &
+      args:
+        chdir: /opt/apache-tomcat-8.5.65/bin
