@@ -1,4 +1,4 @@
-## intentionally making errors and using ignore_error for avoidance and continuation of execution of this yml file
+## Intentionally making errors and using ignore_error for avoidance and continuation of execution of this yml file
 
 ---
 - name: this is installing httpd
@@ -27,7 +27,7 @@
 
   - name: starting apahe2 package
     service: 
-      name: apache2
+      name: apache2 
       state: started
     when: ansible_os_family == "Debian"
 
