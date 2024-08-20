@@ -1,21 +1,44 @@
 ##For install a package 
 ---
-- name: playbook to install package
-  hosts: webserver
+- name: Playbook to install a package
+  hosts: all
   become: true
   tasks:
-    - name: Install package
-      yum: 
+    - name: Install Git on RedHat-based systems
+      yum:
         name: git
-        state: installed
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Install Git on Debian-based systems
+      apt:
+        name: git
+        state: present
+      when: ansible_os_family == "Debian"
+
 
 ##For installing multiple packages at a time        
+
 ---
-- name: playbook to install packages
-  hosts: webserver
+- name: Playbook to install multiple packages
+  hosts: all
   become: yes
   tasks:
-    - name: Install multiple packages at a time 
-      yum: 
+    - name: Install multiple packages on RedHat-based systems
+      yum:
         name: ['git','which','kubernetes','mysql','tree','wget',]
-        state: installed  
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Install multiple packages on Debian-based systems
+      apt:
+        name:
+          - git
+          - which
+          - kubernetes
+          - mysql
+          - tree
+          - wget
+        state: present
+      when: ansible_os_family == "Debian"
+        
